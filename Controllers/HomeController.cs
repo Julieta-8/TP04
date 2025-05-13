@@ -12,9 +12,24 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
-
-    public IActionResult Index()
+    public IActionResult Palabra()
     {
-        return View();
+      palabra=Resultado();
+      intentos=intentos;
+      
+        return View("Ahorcado");
+    }
+    public IActionResult IngresoLetra(char letra)
+    {
+      Palabra.IngresoLetra(letra);
+        return View("Ahorcado");
+    }
+ public IActionResult IngresoPalabra(string palabra)
+    {
+        if(palabra.Length != 0){
+            Palabra.IngresoPalabra(palabra);
+        }
+      
+        return View("Ahorcado");
     }
 }

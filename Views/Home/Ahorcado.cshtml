@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Ahorcado";
+}
+<body>
+<header> 
+<h1>Ahorcado</h1>
+ 
+</header>
+<main>
+
+        <h1>@ViewBag.palabra</h1>
+         <h3>@ViewBag.intentos</h3>
+          <h3>@ViewBag.LetrasIntentadas</h3>
+
+          <form action='@Url.Action("IngresoLetra", "Home")' method='POST' enctype="multipart/form-data" >
+          Ingresar letra:<input type="text" name= "letra"/>
+          <input type="submit" name= "letra"/>
+          Arriesgar palabra:<input type="text" name= "palabra"/>
+           <input type="submit" name= "palabra"/>
+
+          </form>
+
+</main>
+</body>
