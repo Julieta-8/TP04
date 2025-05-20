@@ -8,7 +8,7 @@ public class HomeController : Controller
 {
   public IActionResult Inicio()
   {
-    return View("Ahorcado");
+    return View("Ingreso");
   }
 
   public IActionResult Ahorcado()
@@ -28,8 +28,6 @@ public class HomeController : Controller
     ViewBag.palabra = Palabra.Resultado();
     ViewBag.intentos = Palabra.intentos;
     ViewBag.LetrasIntentadas = Palabra.LetrasIntentadas;
-    ViewBag.Terminado = Palabra.Terminado;
-    ViewBag.Perdiste = Palabra.Perdiste;
     return View("Ahorcado");
   }
   public IActionResult IngresoPalabra2(string palabra2)
@@ -43,12 +41,12 @@ public class HomeController : Controller
     ViewBag.LetrasIntentadas = Palabra.LetrasIntentadas;
     ViewBag.Terminado = Palabra.Terminado;
     ViewBag.Perdiste = Palabra.Perdiste;
+    if(Palabra.Terminado==true|| Palabra.Perdiste==true){
+ return View("Final");
+    } else{
     return View("Ahorcado");
-  }
-  public IActionResult Reiniciar()
-  {
-    Palabra.Reiniciar();
-    return View("Ahorcado");
-
     }
+  }
+
+   
 }

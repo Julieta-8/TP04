@@ -40,10 +40,8 @@ public static void IngresoPalabra(string palabra2){
   intentos++;
   if(palabra == palabra2){
       Terminado = true;
-      foreach (char l in palabra2)
-      {
-   LetrasIntentadas.Add(l);
-}
+    
+      
   }
   else{
       Perdiste = true;
@@ -56,27 +54,25 @@ public static void IngresoPalabra(string palabra2){
       intentos++;
       LetrasIntentadas.Add(letra);
 
-      Completado = true;
       foreach (char l in palabra)
       {
         if (!LetrasIntentadas.Contains(l))
         {
           Completado = false;
         }
-        if (Completado)
-        {
-          Terminado = true;
-        }
+        //if (LetrasIntentadas.Contains('P'&'R'&'O'&'G'&'A'&'M'&'C'&'I'&'N'))
+       // {
+       //   Terminado = true;
+      //  }
+      char[] letras = { 'P', 'R', 'O', 'G', 'A', 'M', 'C', 'I', 'N' };
+
+if (letras.All(letra => LetrasIntentadas.Contains(letra)))
+{
+    Terminado = true;
+}
       }
     }
   }
-   public static void Reiniciar() {
-    intentos = 0;
-    Terminado = false;
-    Perdiste = false;
-    Completado = false;
-    LetrasIntentadas.Clear();
 
-  }
   
 }

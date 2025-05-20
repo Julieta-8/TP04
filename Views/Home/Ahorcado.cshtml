@@ -11,11 +11,11 @@
         <h2>@ViewBag.palabra</h2>
          <h3>Intentos: @ViewBag.intentos</h3>
          <h3>Letras probadas :</h3>
-          @foreach (char item in @ViewBag.LetrasIntentadas){
+         <h3>  @foreach (char item in @ViewBag.LetrasIntentadas){
 
- <h3>  @item </h3>
+  @item
           }
-          
+           </h3>
 </section>
           <form action='@Url.Action("IngresoLetra2", "Home")' method='POST' enctype="multipart/form-data" >
             Ingresar letra

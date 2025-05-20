@@ -1,0 +1,25 @@
+@{
+    ViewData["Title"] = "Final";
+}
+<body>
+<header> 
+<h1>Ahorcado</h1>
+ 
+</header>
+<main>
+<section>
+        <h2>@ViewBag.palabra</h2>
+           <h3>Intentos: @ViewBag.intentos</h3>
+         <h3>Letras probadas :</h3>
+         <h3>  @foreach (char item in @ViewBag.LetrasIntentadas){
+
+  @item
+          }
+           </h3>
+           <h3>  Gracias Por Jugar!!! <h3>
+           <h3> @ViewBag.resultado </h3>
+</section>
+          
+        
+</main>
+</body>
