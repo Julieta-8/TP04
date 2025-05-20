@@ -6,30 +6,49 @@ namespace Actividad4.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+  public IActionResult Inicio()
+  {
+    return View("Ahorcado");
+  }
 
-    public HomeController(ILogger<HomeController> logger)
+  public IActionResult Ahorcado()
+  {
+    ViewBag.palabra = Palabra.Resultado();
+    ViewBag.intentos = Palabra.intentos;
+    ViewBag.LetrasIntentadas = Palabra.LetrasIntentadas;
+    ViewBag.Terminado = Palabra.Terminado;
+    ViewBag.Perdiste = Palabra.Perdiste;
+
+    return View("Ahorcado");
+  }
+  public IActionResult IngresoLetra2(char letra)
+  {
+
+    Palabra.IngresoLetra(letra);
+    ViewBag.palabra = Palabra.Resultado();
+    ViewBag.intentos = Palabra.intentos;
+    ViewBag.LetrasIntentadas = Palabra.LetrasIntentadas;
+    ViewBag.Terminado = Palabra.Terminado;
+    ViewBag.Perdiste = Palabra.Perdiste;
+    return View("Ahorcado");
+  }
+  public IActionResult IngresoPalabra2(string palabra2)
+  {
+    if (palabra2.Length != 0)
     {
-        _logger = logger;
+      Palabra.IngresoPalabra(palabra2);
     }
-    public IActionResult Palabra()
-    {
-      palabra=Resultado();
-      intentos=intentos;
-      
-        return View("Ahorcado");
-    }
-    public IActionResult IngresoLetra(char letra)
-    {
-      Palabra.IngresoLetra(letra);
-        return View("Ahorcado");
-    }
- public IActionResult IngresoPalabra(string palabra)
-    {
-        if(palabra.Length != 0){
-            Palabra.IngresoPalabra(palabra);
-        }
-      
-        return View("Ahorcado");
+    ViewBag.palabra = Palabra.Resultado();
+    ViewBag.intentos = Palabra.intentos;
+    ViewBag.LetrasIntentadas = Palabra.LetrasIntentadas;
+    ViewBag.Terminado = Palabra.Terminado;
+    ViewBag.Perdiste = Palabra.Perdiste;
+    return View("Ahorcado");
+  }
+  public IActionResult Reiniciar()
+  {
+    Palabra.Reiniciar();
+    return View("Ahorcado");
+
     }
 }

@@ -7,18 +7,25 @@
  
 </header>
 <main>
+<section>
+        <h2>@ViewBag.palabra</h2>
+         <h3>Intentos: @ViewBag.intentos</h3>
+         <h3>Letras probadas :</h3>
+          @foreach (char item in @ViewBag.LetrasIntentadas){
 
-        <h1>@ViewBag.palabra</h1>
-         <h3>@ViewBag.intentos</h3>
-          <h3>@ViewBag.LetrasIntentadas</h3>
-
-          <form action='@Url.Action("IngresoLetra", "Home")' method='POST' enctype="multipart/form-data" >
-          Ingresar letra:<input type="text" name= "letra"/>
-          <input type="submit" name= "letra"/>
-          Arriesgar palabra:<input type="text" name= "palabra"/>
-           <input type="submit" name= "palabra"/>
-
-          </form>
-
+ <h3>  @item </h3>
+          }
+          
+</section>
+          <form action='@Url.Action("IngresoLetra2", "Home")' method='POST' enctype="multipart/form-data" >
+            Ingresar letra
+            <input type="text" name= "letra"/>
+          <input type="submit" name= "Enviar" value="Arriesgar Letra"/>
+         </form>
+          <form action='@Url.Action("IngresoPalabra2", "Home")' method='POST' enctype="multipart/form-data" >
+          Arriesgar palabra
+            <input type="text" name= "palabra2"/>
+            <input type="submit" name= "Enviar2" value="Arriesgar Palabra"/>
+        </form>
 </main>
 </body>
