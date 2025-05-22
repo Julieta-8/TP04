@@ -4,11 +4,8 @@ namespace Actividad4.Models;
  static class Palabra
 {
   public static string palabra = "PROGRAMACION";
-
   public static bool Terminado = false;
    public static bool Perdiste = false;
-    public static bool Completado = false;
-   
 public static int intentos = 0;
 public static List< char> LetrasIntentadas = new List<char>();
 
@@ -39,9 +36,7 @@ return resultado;
 public static void IngresoPalabra(string palabra2){
   intentos++;
   if(palabra == palabra2){
-      Terminado = true;
-    
-      
+      Terminado = true;  
   }
   else{
       Perdiste = true;
@@ -54,16 +49,8 @@ public static void IngresoPalabra(string palabra2){
       intentos++;
       LetrasIntentadas.Add(letra);
 
-      foreach (char l in palabra)
-      {
-        if (!LetrasIntentadas.Contains(l))
-        {
-          Completado = false;
-        }
-        //if (LetrasIntentadas.Contains('P'&'R'&'O'&'G'&'A'&'M'&'C'&'I'&'N'))
-       // {
-       //   Terminado = true;
-      //  }
+      
+       
       char[] letras = { 'P', 'R', 'O', 'G', 'A', 'M', 'C', 'I', 'N' };
 
 if (letras.All(letra => LetrasIntentadas.Contains(letra)))
@@ -72,7 +59,7 @@ if (letras.All(letra => LetrasIntentadas.Contains(letra)))
 }
       }
     }
-  }
+  
 
   
 }
