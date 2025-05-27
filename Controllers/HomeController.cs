@@ -8,11 +8,19 @@ public class HomeController : Controller
 {
   public IActionResult Inicio()
   {
+
+    Palabra Juego = new Palabra();
+    HttpContext.Session.SetString("Juego", Objeto.ObjectToString(Juego));
+
     return View("Ingreso");
   }
+public IActionResult Objeto() {
+}
 
   public IActionResult Ahorcado()
   {
+    
+    Palabra Juego = // Levantar de Session el objeto
     ViewBag.palabra = Palabra.Resultado();
     ViewBag.intentos = Palabra.intentos;
     ViewBag.LetrasIntentadas = Palabra.LetrasIntentadas;

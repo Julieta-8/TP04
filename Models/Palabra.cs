@@ -1,16 +1,16 @@
 using System.Security.Cryptography.X509Certificates;
 
 namespace Actividad4.Models;
- static class Palabra
+  class Palabra
 {
-  public static string palabra = "PROGRAMACION";
-  public static bool Terminado = false;
-   public static bool Perdiste = false;
-public static int intentos = 0;
-public static List< char> LetrasIntentadas = new List<char>();
+  public  string palabra = "PROGRAMACION";
+  public  bool Terminado = false;
+   public  bool Perdiste = false;
+public  int intentos = 0;
+public  List< char> LetrasIntentadas = new List<char>();
 
 
-public static string Resultado(){
+public  string Resultado(){
   string resultado = " ";
     foreach (char l in palabra)
     {
@@ -33,7 +33,7 @@ if (Perdiste == true)
 }
 return resultado;
 }
-public static void IngresoPalabra(string palabra2){
+public  void IngresoPalabra(string palabra2){
   intentos++;
   if(palabra == palabra2){
       Terminado = true;  
@@ -42,7 +42,7 @@ public static void IngresoPalabra(string palabra2){
       Perdiste = true;
   }
 }
-  public static void IngresoLetra(char letra)
+  public  void IngresoLetra(char letra)
   {
     if (!LetrasIntentadas.Contains(letra) && !Terminado)
     {
